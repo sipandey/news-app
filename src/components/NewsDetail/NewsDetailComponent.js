@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardBody, CardFooter, CardTitle } from 'reactstrap';
+import { Card, CardHeader, CardImg, CardBody, CardFooter, CardTitle, CardSubtitle, CardText } from 'reactstrap';
 
 class NewsDetailComponent extends Component {
 
@@ -8,7 +8,7 @@ class NewsDetailComponent extends Component {
     }
 
     render() {
-        if(this.props.selectedNewsItem === null) {
+        if (this.props.selectedNewsItem === null) {
             return (
                 <div></div>
             );
@@ -19,11 +19,20 @@ class NewsDetailComponent extends Component {
                 <div className="col-12 m-1">
                     <Card>
                         <CardHeader>
-
+                            <CardImg src={this.props.selectedNewsItem.media[0]['media-metadata'][2].url}></CardImg>
                         </CardHeader>
-                        <CardTitle>
-                            {this.props.selectedNewsItem.title}
-                        </CardTitle>
+                        <CardBody>
+                            <CardTitle>
+                                {this.props.selectedNewsItem.title}
+                            </CardTitle>
+                            <CardSubtitle>
+                                {this.props.selectedNewsItem.author}
+                                <span className="float-right">{this.props.selectedNewsItem.publishedDate}</span>
+                            </CardSubtitle>
+                            <CardText className="mt-2">
+                                {this.props.selectedNewsItem.abstract}
+                            </CardText>
+                        </CardBody>
                     </Card>
                 </div>
 

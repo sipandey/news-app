@@ -7,7 +7,7 @@ class NewsListComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedNewsItem: {}
+            selectedNewsItem: null
         }
     }
 

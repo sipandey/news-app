@@ -15,7 +15,6 @@ class App extends Component {
   componentDidMount() {
     axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=EZEc9hGk2Jmnjf4EYv9tl3VAl8E4YhfA`)
         .then(res => {
-          debugger;
             const newsList = res.data.results.map(newsItem => (
                 {
                     id: newsItem.id,

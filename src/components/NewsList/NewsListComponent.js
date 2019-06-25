@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Media } from 'reactstrap';
-import NewsDetailComponent from '../NewsDetail/NewsDetailComponent';
+import { Link } from 'react-router-dom';
 
 class NewsListComponent extends Component {
 
@@ -11,29 +11,24 @@ class NewsListComponent extends Component {
         }
     }
 
-    onNewsItemSelect(news) {
-        this.setState({
-            selectedNewsItem: news
-        })
-    }
-
     render() {
         const newsList = this.props.newsList.map((news) => {
             return (
                 <div key={news.id} className="col-12 m-1">
-                    <Media className="border p-3" onClick={() => this.onNewsItemSelect(news)}>
+                    <Media className="border p-3">
                         <Media left middle href="#">
                             <Media object className="mr-3 mt-1 rounded-circle" src={news.media[0]['media-metadata'][0].url} alt="Generic placeholder image" />
                         </Media>
                         <Media body>
                             <Media heading>
-                                {news.title}
+                                <Link to={`/newslist/${news.id}`} >
+                                    {news.title}
+                                </Link>
                             </Media>
                             {news.author}
                         </Media>
                     </Media>
                 </div>
-
             );
         });
 
@@ -42,7 +37,6 @@ class NewsListComponent extends Component {
                 <div className="row">
                     {newsList}
                 </div>
-                <NewsDetailComponent selectedNewsItem={this.state.selectedNewsItem} />
             </div>
         );
     }

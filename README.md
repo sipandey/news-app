@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# News App
 
-## Available Scripts
+News App is a simple app created with the React Framework. It utilizes the NY Times Most Popular API and shows a list of items. The items when tapped display the details for that item. The application uses the most viewed section API for a period of 7 days (default). The period is currently hard-coded and can be configured later to make it dynamic.
 
-In the project directory, you can run:
+To leverage the Declarative and Component-Based programming paradigm of React, the application is divided into following components. These components manage their own state and these individual components are then composed to make complex UIs. Component details:
 
-### `npm start`
+- HeaderComponent
+- MainComponent
+- NewsListComponent
+- NewsDetailComponent
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### HeaderComponent
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Header Component holds the header of the application.
 
-### `npm test`
+### MainComponent
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is the component which takes care of the routing and facilitates the passing of props between components. This component fetches the data from the API and then shares it to the NewsListComponent so that it can be rendered as a list, it also passes the selectedNewsItem to the NewsDetailComponent based on the selection.
 
-### `npm run build`
+### NewsListComponent
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This component renders the news list items as a list with each item being displayed as a Media (using Reactstrap). Individual items can be selected by tapping/clicking on them.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### NewsDetailComponent
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This component renders the detail for the item that is selected from the NewsListComponent. The details are displayed in the form of a Card (using Reactstrap).
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+News App requires [Node.js](https://nodejs.org/) v11+ or [Yarn](https://yarnpkg.com/) v1.16+ to run.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install the dependencies and devDependencies and start the server.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```sh
+$ cd news-app
+$ npm install
+$ yarn start or npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Testing
 
-## Learn More
+News App has been setup with testing environment as well which eanbles us to test the application against the test-scripts and test-cases. The application uses jest alsong with enzyme, react-test-renderer and enzyme-adapter-react-16 for running the tests. There are two test-scripts that are currently added to the project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- NewsListComponent.test.js
+- NewsDetailComponent.test.js
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Running the tests.
 
-### Code Splitting
+```sh
+npm run test
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Todos
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Write MORE Tests

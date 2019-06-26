@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch, Route, withRouter, Redirect} from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import NewsListComponent from '../NewsList/NewsListComponent';
 import NewsDetailComponent from '../NewsDetail/NewsDetailComponent';
@@ -10,11 +10,11 @@ class MainComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          newsList: []
+            newsList: []
         }
-      }
-    
-      componentDidMount() {
+    }
+
+    componentDidMount() {
         axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=EZEc9hGk2Jmnjf4EYv9tl3VAl8E4YhfA`)
             .then(res => {
                 const newsList = res.data.results.map(newsItem => (
@@ -30,12 +30,11 @@ class MainComponent extends Component {
                 this.setState({ newsList });
             });
     }
-    
+
 
     render() {
-
-        const NewsWithId = ({match})=> {
-            return(
+        const NewsWithId = ({ match }) => {
+            return (
                 <NewsDetailComponent selectedNewsItem={this.state.newsList.filter((news) => {
                     return news.id === parseInt(match.params.newsId)
                 })[0]} />
@@ -52,8 +51,6 @@ class MainComponent extends Component {
             </div>
         );
     }
-
-
 }
 
 export default withRouter(MainComponent);

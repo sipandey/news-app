@@ -5,9 +5,9 @@ class HeaderComponent extends Component {
   render() {
     return(
     <React.Fragment>
-      <Navbar dark color="primary">
+      <Navbar dark color="primary" fixed="top">
         <div className="container">
-            <NavbarBrand href="/">NY Times Most Popular</NavbarBrand>
+            <NavbarBrand href="/">News Times Most Popular</NavbarBrand>
         </div>
       </Navbar>
     </React.Fragment>

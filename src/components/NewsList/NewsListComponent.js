@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Media, Med } from 'reactstrap';
+import { Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class NewsListComponent extends Component {
@@ -8,19 +8,19 @@ class NewsListComponent extends Component {
         const newsList = this.props.newsList.map((news) => {
             return (
                 <div key={news.id} className="col-12 m-1">
-                    <Media className="border p-3">
-                        <Media left middle href="#">
-                            <Media object className="mr-3 mt-1 rounded-circle" src={news.media[0]['media-metadata'][0].url} alt="Generic placeholder image" />
-                        </Media>
-                        <Media body>
-                            <Media heading>
-                                <Link to={`/newslist/${news.id}`} >
-                                    {news.title}
-                                </Link>
+                    <Link to={`/newslist/${news.id}`}>
+                        <Media className="border p-3">
+                            <Media middle>
+                                <Media object className="mr-3 mt-1 rounded-circle" src={news.media[0]['media-metadata'][0].url} alt="Generic placeholder image" />
                             </Media>
-                            {news.author}
+                            <Media body>
+                                <Media heading>
+                                    {news.title}
+                                </Media>
+                                {news.author}
+                            </Media>
                         </Media>
-                    </Media>
+                    </Link>
                 </div>
             );
         });

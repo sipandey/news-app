@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardImg, CardBody, CardFooter, CardTitle, CardSubtitle, CardText } from 'reactstrap';
+import { Card, CardHeader, CardImg, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap';
 
 class NewsDetailComponent extends Component {
     render() {
         if (this.props.selectedNewsItem === undefined) {
             return (
-                <div></div>
+                <div>No item selected!</div>
             );
         }
 

@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Card, CardHeader, CardImg, CardBody, CardFooter, CardTitle, CardSubtitle, CardText } from 'reactstrap';
 
 class NewsDetailComponent extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         if (this.props.selectedNewsItem === undefined) {
             return (

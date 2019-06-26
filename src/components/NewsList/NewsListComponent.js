@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
-import { Media } from 'reactstrap';
+import { Media, Med } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class NewsListComponent extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedNewsItem: null
-        }
-    }
 
     render() {
         const newsList = this.props.newsList.map((news) => {
